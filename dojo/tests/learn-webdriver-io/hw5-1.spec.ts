@@ -8,7 +8,7 @@ test.beforeEach(async({page}) => {
 test.describe('Xpath lesson on learn webdriver', async() => {
     const randomValue = Math.floor(Math.random() * 999 )
 
-    test.skip('Sign up', async({page}) => {
+    test('Sign up', async({page}) => {
         await page.locator('//a[@href="/register"]').click()
         await page.locator('//input[@placeholder="Username"]').fill('sashko')
         await page.locator('//input[@placeholder="Email"]').fill('oleksandr@test.js')

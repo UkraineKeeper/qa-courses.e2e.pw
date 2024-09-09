@@ -15,24 +15,6 @@ test.afterAll (async ({page}) => {
 })
 
 test.describe('Coffee App Test Complect', async() => {
-
-    test('Check1', async ( {page}) => {
-        await expect(page.locator('[data-test="Espresso"]')).toBeVisible();
-        await expect(page.locator('[data-test="Espresso_Macchiato"]')).toBeVisible();
-        await expect(page.getByRole('heading', { name: 'Espresso $' })).toBeVisible();
-        await expect(page.getByRole('heading', { name: 'Espresso Macchiato $' })).toBeVisible();
-        await page.locator('[data-test="Cappuccino"]').click();
-        await page.locator('[data-test="Cappuccino"]').click();
-        await page.locator('[data-test="Americano"]').click();
-        await page.getByRole('button', { name: 'Nah, I\'ll skip.' }).click();
-        await page.locator('[data-test="checkout"]').click();
-        await page.getByLabel('Name').fill('Alex');
-        await page.getByLabel('Name').press('Tab');
-        await page.getByLabel('Email').fill('alex@alex.alex');
-        await page.getByLabel('Promotion message').click();
-        await page.getByLabel('Promotion checkbox').click();
-        await page.getByRole('button', { name: 'Submit' }).click();
-    });
     
     test('Remove from total', async ({ page }) => {
         await page.locator('[data-test="Cappuccino"]').click();
@@ -132,4 +114,22 @@ test.describe('Coffee App Test Complect', async() => {
         await page.getByRole('button', { name: 'Submit' }).click();
         await expect(page.locator('#app')).toContainText('Thanks for your purchase. Please check your email for payment.');
       })
+
+      test('Check from generator, exceeded', async ( {page}) => {
+        await expect(page.locator('[data-test="Espresso"]')).toBeVisible();
+        await expect(page.locator('[data-test="Espresso_Macchiato"]')).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Espresso $' })).toBeVisible();
+        await expect(page.getByRole('heading', { name: 'Espresso Macchiato $' })).toBeVisible();
+        await page.locator('[data-test="Cappuccino"]').click();
+        await page.locator('[data-test="Cappuccino"]').click();
+        await page.locator('[data-test="Americano"]').click();
+        await page.getByRole('button', { name: 'Nah, I\'ll skip.' }).click();
+        await page.locator('[data-test="checkout"]').click();
+        await page.getByLabel('Name').fill('Alex');
+        await page.getByLabel('Name').press('Tab');
+        await page.getByLabel('Email').fill('alex@alex.alex');
+        await page.getByLabel('Promotion message').click();
+        await page.getByLabel('Promotion checkbox').click();
+        await page.getByRole('button', { name: 'Submit' }).click();
+    });
 })

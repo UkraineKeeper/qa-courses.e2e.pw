@@ -16,7 +16,7 @@ test.afterAll (async ({page}) => {
 
 test.describe('Coffee App Test Complect', async() => {
 
-    test('Check1', async ( {page}) => {
+    test('Check how generator works', async ( {page}) => {
         await expect(page.locator('[data-test="Espresso"]')).toBeVisible();
         await expect(page.locator('[data-test="Espresso_Macchiato"]')).toBeVisible();
         await expect(page.getByRole('heading', { name: 'Espresso $' })).toBeVisible();
